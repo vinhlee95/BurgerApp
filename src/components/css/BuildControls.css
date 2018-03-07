@@ -1,0 +1,5 @@
+.buildControls {
+   display: flex;
+   flex-direction: column;
+   background-color: orange;
+}

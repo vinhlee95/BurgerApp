@@ -1,0 +1,36 @@
+.Burger {
+   width: 100%;
+   margin: auto;
+   height: 300px;
+   /* Scroll to see whole burger when it grows bigger */
+   overflow: scroll; 
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.addMore {
+   color: white;
+   background-color: red;
+   width: 60%;
+   margin: 0 auto;
+   border-radius: 5px;
+   padding: 10px 0;
+}
+/* Desktop */
+
+
+/* Mobile */
+@media screen and (min-width: 320px) {
+   .Burger {
+      height: 300px;
+   }
+}
+
+/* Tablet */
+@media screen and (min-width: 767px) {
+   .Burger {
+      width: 80%;
+      height: 500px;
+   }
+}

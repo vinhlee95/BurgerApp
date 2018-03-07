@@ -1,0 +1,21 @@
+.buildControl {
+   display: flex;
+   flex-direction: row;
+   margin: 10px auto;
+}
+.label {
+   padding-right: 10px;
+   text-transform: uppercase;
+   font-weight: 600;
+}
+.button {
+   margin-right: 5px;
+   border-radius: 2px;
+   background-color: red;
+   border: 1px solid grey;
+   cursor: pointer;
+   padding: 5px 5px;
+}
+.button:hover {
+   background-color: orange;
+}
