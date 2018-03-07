@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Burger from './Burger';
 import BuildControls from './BuildControls';
+import Modal from './Modal';
+import OrderSummary from './OrderSummary';
 
 const singlePrice = {
   salad: 0.5,
@@ -19,9 +21,23 @@ class Control extends Component {
            cheese: 0,
            meat: 0
          },
-         price: 4
+         price: 4, 
+         purchasable: false,
+         showModal: false,
       }
    }
+
+   handlePurchase = (ingredients) => {
+     const sum = Object.keys(ingredients).map(igKey => {
+        return ingredients[igKey];
+     })
+     .reduce((sum, el) => {
+        return sum + el;
+     }, 0);
+     const updatedPurchase = sum > 0;
+     this.setState({purchasable: updatedPurchase});
+   }
+
 
    handleAddIngredient = type => {
       const oldCount = this.state.ingredients[type];
@@ -36,6 +52,7 @@ class Control extends Component {
         ingredients: updatedIngredients,
         price: addedPrice
       });
+      this.handlePurchase(updatedIngredients);
    }
 
    handleRemoveIngredient = type => {
@@ -51,7 +68,21 @@ class Control extends Component {
           ingredients: updatedIngredients,
           price: removedPrice
       });
+     this.handlePurchase(updatedIngredients);      
    };
+
+   renderModal = () => {
+      if(this.state.showModal) {
+        return (
+          <Modal>
+            <OrderSummary 
+              ingredients={this.state.ingredients} 
+              price={this.state.price}/>
+          </Modal>
+        );
+      }
+      return;
+   }
 
    render() {
       const disabledInfo = {...this.state.ingredients};
@@ -65,7 +96,11 @@ class Control extends Component {
           <BuildControls 
             handleAddIngredient={this.handleAddIngredient}
             handleRemoveIngredient={this.handleRemoveIngredient}
-            disabled={disabledInfo}/>
+            disabled={disabledInfo}
+            purchasable={this.state.purchasable}
+            handleShowModal={() => this.setState({showModal: !this.state.showModal})}/>
+
+          {this.renderModal()}
         </div>
       );
    }

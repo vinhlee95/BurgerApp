@@ -10,7 +10,6 @@ const BuildControls = props => {
       {label: 'bacon', type: 'bacon'},
       {label: 'cheese', type: 'cheese'}
    ];
-
    return(
       <div className={classes.buildControls}>
          {ingredients.map(ingredient => {
@@ -24,6 +23,10 @@ const BuildControls = props => {
                   disabled={props.disabled[ingredient.type]}/>
             );
          })}
+         <button 
+            className={classes.orderButton}
+            disabled={!props.purchasable}
+            onClick={props.handleShowModal}>Order Now</button>
       </div>
    );
 }

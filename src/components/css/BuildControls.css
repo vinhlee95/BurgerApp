@@ -1,5 +1,16 @@
 .buildControls {
+   width: 100%;
    display: flex;
    flex-direction: column;
    background-color: orange;
+}
+.orderButton {
+   width: 50%;
+   padding: 10px 10px;
+   background-color: #ad790d;
+   color: white;
+   margin: 0 auto 10px;
+}
+.orderButton:disabled {
+   background-color: #d8c7a4;
 }
