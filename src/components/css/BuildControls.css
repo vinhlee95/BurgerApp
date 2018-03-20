@@ -7,10 +7,23 @@
 .orderButton {
    width: 50%;
    padding: 10px 10px;
-   background-color: #ad790d;
+   background-color: rgb(89, 207, 89);
    color: white;
    margin: 0 auto 10px;
+   border: 1px solid gray;
+   border-radius: 3px;
 }
 .orderButton:disabled {
    background-color: #d8c7a4;
+}
+.resetButton {
+   display: block;
+   margin: 5px auto;
+   width: 50%;
+   background-color: rgba(82, 8, 8, 0.7);
+   color: white;
+   padding: 10px 10px;
+   border-radius: 3px;
+   border: 1px solid gray;
+   
 }

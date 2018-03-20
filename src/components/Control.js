@@ -11,16 +11,18 @@ const singlePrice = {
   meat: 1.5
 };
 
+const noneIngredients = {
+  salad: 0,
+  bacon: 0,
+  cheese: 0,
+  meat: 0
+}
+
 class Control extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         ingredients: {
-           salad: 0,
-           bacon: 0,
-           cheese: 0,
-           meat: 0
-         },
+         ingredients: noneIngredients,
          price: 4, 
          purchasable: false,
          showModal: false,
@@ -71,13 +73,18 @@ class Control extends Component {
      this.handlePurchase(updatedIngredients);      
    };
 
+   handleReset = () => {
+     this.setState({ingredients: noneIngredients});
+   }
+
    renderModal = () => {
       if(this.state.showModal) {
         return (
-          <Modal>
+          <Modal showModal={this.state.showModal} handleBackdropClick={() => this.setState({showModal: false})}>
             <OrderSummary 
               ingredients={this.state.ingredients} 
-              price={this.state.price}/>
+              price={this.state.price}
+              handleCloseModal={() => this.setState({showModal: false})}/>
           </Modal>
         );
       }
@@ -98,7 +105,7 @@ class Control extends Component {
             handleRemoveIngredient={this.handleRemoveIngredient}
             disabled={disabledInfo}
             purchasable={this.state.purchasable}
-            handleShowModal={() => this.setState({showModal: !this.state.showModal})}/>
+            handleShowModal={() => this.setState({showModal:true})}handleReset={this.handleReset}/>
 
           {this.renderModal()}
         </div>

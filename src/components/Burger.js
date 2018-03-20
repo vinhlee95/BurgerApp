@@ -25,7 +25,7 @@ const Burger = props => {
         <BurgerIngredient type="bread-top" />
         {renderBurger}
         <BurgerIngredient type="bread-bottom" />
-        <h2>Price: {props.price}</h2>        
+        <h2>Price: {props.price.toFixed(2)}</h2>        
       </div>
     );
 };
