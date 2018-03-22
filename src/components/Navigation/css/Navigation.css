@@ -1,0 +1,25 @@
+.navLink {
+   display: flex;
+   align-items: center;
+   box-sizing: border-box;
+   margin: 0 0;
+   padding-left: 0;
+   list-style-type: none;
+   height: 100%;
+}
+.navLink a {
+   text-decoration: none;
+   color: white;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   padding: 0 15px;
+   border-bottom: 4px solid transparent;
+   transition: .3s;
+}
+.navLink a:hover,
+.navLink a:active,
+.navLink a.active {
+   background-color: rgba(233, 233, 233, .7);
+   border-bottom-color: rgb(216, 117, 71);
+}

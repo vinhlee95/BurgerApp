@@ -2,12 +2,10 @@ import React from 'react';
 import classes from './css/Navigation.css';
 
 const Navigation = props => (
-   <nav className={classes.nav}>
-      <ul>
-         <li>Builder</li>
-         <li>Checkout</li>
-      </ul>
-   </nav>
+   <ul className={classes.navLink}>
+      <a href="/" className={classes.active} ><li>Builder</li></a>
+      <a href="/"><li>Checkout</li></a>
+   </ul>
 );
 
 export default Navigation;
